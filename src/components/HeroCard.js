@@ -14,7 +14,7 @@ export default (props) => (
       borderLeft: 'none',
       borderTop: 'none',
       borderRadius: '10%',
-      background: `url(./images/${props.icon}) no-repeat right top`,
+      background: `url(./images/${props.icon}) no-repeat`,
       boxShadow: `2px 2px 5px ${'#999'}`,
     }}
     onClick={() => props.pickHero(props.name)}
