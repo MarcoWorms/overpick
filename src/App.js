@@ -83,15 +83,22 @@ class App extends Component {
       picks: {},
 		}
 	}
+  componentDidMount () {
+    if (localStorage.picks) {
+      this.setState({ picks: JSON.parse(localStorage.picks)})
+    }
+  }
   setFlag = (name) => {
     this.setState({ flag: name })
   }
   pickHero = (name) => {
+    const newPicks = {
+      ...this.state.picks,
+      [name]: this.state.flag,
+    }
+    localStorage.picks = JSON.stringify(newPicks)
     this.setState({
-      picks: {
-        ...this.state.picks,
-        [name]: this.state.flag,
-      }
+      picks: newPicks
     })
   }
   unpickHero = (name) => {
