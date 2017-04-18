@@ -1,4 +1,5 @@
 import React from 'react'
+import { tap } from 'ramda'
 import flags from '../flags'
 
 export default (props) => (
@@ -9,13 +10,13 @@ export default (props) => (
       margin: 'auto',
       cursor: 'pointer',
       height: '80px',
-      backgroundColor: flags[props.flag],
       border: 'solid 2px #555',
       borderLeft: 'none',
       borderTop: 'none',
       borderRadius: '10%',
       background: `url(./images/${props.icon}) no-repeat`,
-      boxShadow: `2px 2px 5px ${'#999'}`,
+      backgroundColor: flags[props.flag] || '#ddd',
+      boxShadow: `2px 2px 5px #aaa`,
     }}
     onClick={() => props.pickHero(props.name)}
     onContextMenu={(e) => {
