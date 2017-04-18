@@ -97,13 +97,24 @@ class App extends Component {
       [name]: this.state.flag,
     }
     localStorage.picks = JSON.stringify(newPicks)
+
     this.setState({
       picks: newPicks
     })
   }
   unpickHero = (name) => {
+    const newPicks = omit([name], this.state.picks)
+    localStorage.picks = JSON.stringify(newPicks)
+
     this.setState({
-      picks: omit([name], this.state.picks)
+      picks: newPicks
+    })
+  }
+  unpickAll = (name) => {
+    const newPicks = {}
+    localStorage.picks = JSON.stringify(newPicks)
+    this.setState({
+      picks: newPicks
     })
   }
   canGenerateSheet = () => !(Object.keys(this.state.picks).length === this.state.heroes.length)
@@ -118,7 +129,13 @@ class App extends Component {
               disabled={this.canGenerateSheet()}
               primary={!this.canGenerateSheet()}
             >
-              Make Sheet!
+              Make a sheet!
+            </Button>
+            <Button
+              style={{ marginLeft: '10px' }}
+              onClick={this.unpickAll}
+            >
+              Clear Picks
             </Button>
           </Cell>
         </Grid>
