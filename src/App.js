@@ -125,14 +125,15 @@ class App extends Component {
           <Cell col={12} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <h4>Select your pick preference and then</h4>
             <Button
-              style={{ marginLeft: '10px' }}
+              style={{ margin: '0 10px' }}
               disabled={this.canGenerateSheet()}
               primary={!this.canGenerateSheet()}
             >
               Make a sheet!
             </Button>
+            <h4>or</h4>
             <Button
-              style={{ marginLeft: '10px' }}
+              style={{ margin: '0 10px' }}
               onClick={this.unpickAll}
             >
               Clear Picks
