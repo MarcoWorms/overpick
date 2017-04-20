@@ -68,20 +68,20 @@ class App extends Component {
   render () {
     return (
       <div className="App">
-          <Header
-            canGenerateSheet={this.canGenerateSheet()}
-            unpickAll={this.unpickAll}
-          />
-          <FlagPicker
-            selected={this.state.selectedFlag}
-            handleFlagSelection={this.handleFlagSelection}
-          />
-          <HeroPicker
-            heroes={this.state.heroes}
-            picks={this.state.picks}
-            pickHero={this.pickHero}
-            unpickHero={this.unpickHero}
-          />
+        <Header
+          canGenerateSheet={this.canGenerateSheet()}
+          unpickAll={this.unpickAll}
+        />
+        <FlagPicker
+          selected={this.state.selectedFlag}
+          handleFlagSelection={this.handleFlagSelection}
+        />
+        <HeroPicker
+          heroes={this.state.heroes}
+          picks={this.state.picks}
+          pickHero={this.pickHero}
+          unpickHero={this.unpickHero}
+        />
       </div>
     )
   }
