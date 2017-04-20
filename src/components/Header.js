@@ -1,9 +1,14 @@
 import React from 'react'
 import { Grid, Cell } from 'react-mdl'
 import { Button } from 'belle'
+import Octocat from 'react-icons/lib/go/octoface'
 
 export default props => (
-  <Grid>
+  <Grid
+    style={{
+      paddingTop: 2
+    }}
+  >
     <Cell
       col={12}
       style={{
@@ -32,5 +37,26 @@ export default props => (
         Clear Picks
       </Button>
     </Cell>
+    <a
+      style={{
+        position: 'absolute',
+        right: '0',
+        cursor: 'pointer',
+        color: 'black',
+      }}
+      href="https://github.com/MarcoWorms/overpick"
+      target="blank"
+    >
+      <span>
+        Source
+      </span>
+      <Octocat
+        style={{
+          width: '32px',
+          height: '32px',
+          margin: '0 5px',
+        }}
+      />
+    </a>
   </Grid>
 )
