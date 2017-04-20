@@ -3,22 +3,34 @@ import { propEq, find, } from 'ramda'
 import flags from '../flags'
 import { Grid, Cell } from 'react-mdl'
 
+import { replace, toLower, toUpper, head, tail, pipe } from 'ramda'
+
+const capitalize = string => toUpper(head(string)) + tail(string)
+
+const imageName = pipe(
+  replace(/\.|\:| /g, ''),
+  toLower,
+  capitalize
+)
+
 const HeroCard = (props) => {
   const findFlag = find(propEq('name', props.flagName))
   const flag = props.flagName ? findFlag(flags) : {}
+  const image = imageName(props.name)
   return (
     <div
       style={{
         width: '100%',
-        maxWidth: '100px',
+        maxWidth: '150px',
         margin: 'auto',
         cursor: 'pointer',
-        height: '80px',
+        height: '100px',
         border: 'solid 2px #555',
         borderLeft: 'none',
         borderTop: 'none',
-        borderRadius: '10%',
-        background: `url(./images/${props.icon}) no-repeat`,
+        borderRadius: '20px',
+        background: `url(./images/${image}_portrait.png) ${props.alignImage}`,
+        backgroundSize: 'cover',
         backgroundColor: flag.color || '#ddd',
         boxShadow: `2px 2px 5px #aaa`,
         transition: '0.2s ease-out',
@@ -50,8 +62,8 @@ export default props =>
       <Cell col={2} key={hero.name}>
         <HeroCard
           name={hero.name}
+          alignImage={hero.alignImage}
           description={hero.description}
-          icon={hero.image}
           flagName={props.picks[hero.name]}
           pickHero={props.pickHero}
           unpickHero={props.unpickHero}

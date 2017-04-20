@@ -2,145 +2,145 @@ export default [
   {
     "id": 1,
     "name": "Ana",
-    "image": "Icon-ana.png",
-    "url": "https://overwatch-api.net/api/v1/hero/1"
+    "url": "https://overwatch-api.net/api/v1/hero/1",
+    "alignImage": "top",
   },
   {
     "id": 2,
     "name": "Bastion",
-    "image": "Icon-bastion.png",
-    "url": "https://overwatch-api.net/api/v1/hero/2"
+    "url": "https://overwatch-api.net/api/v1/hero/2",
+    "alignImage": "top",
   },
   {
     "id": 3,
     "name": "D.Va",
-    "image": "Icon-dva.png",
-    "url": "https://overwatch-api.net/api/v1/hero/3"
+    "url": "https://overwatch-api.net/api/v1/hero/3",
+    "alignImage": "center",
   },
   {
     "id": 4,
     "name": "Genji",
-    "image": "Icon-genji.png",
-    "url": "https://overwatch-api.net/api/v1/hero/4"
+    "url": "https://overwatch-api.net/api/v1/hero/4",
+    "alignImage": "top",
   },
   {
     "id": 5,
     "name": "Hanzo",
-    "image": "Icon-hanzo.png",
-    "url": "https://overwatch-api.net/api/v1/hero/5"
+    "url": "https://overwatch-api.net/api/v1/hero/5",
+    "alignImage": "top",
   },
   {
     "id": 6,
     "name": "Junkrat",
-    "image": "Icon-Junkrat.png",
-    "url": "https://overwatch-api.net/api/v1/hero/6"
+    "url": "https://overwatch-api.net/api/v1/hero/6",
+    "alignImage": "center",
   },
   {
     "id": 7,
     "name": "Lúcio",
-    "image": "Icon-Lucio.png",
-    "url": "https://overwatch-api.net/api/v1/hero/7"
+    "url": "https://overwatch-api.net/api/v1/hero/7",
+    "alignImage": "top",
   },
   {
     "id": 8,
     "name": "McCree",
-    "image": "Icon-mccree.png",
-    "url": "https://overwatch-api.net/api/v1/hero/8"
+    "url": "https://overwatch-api.net/api/v1/hero/8",
+    "alignImage": "top",
   },
   {
     "id": 9,
     "name": "Mei",
-    "image": "Icon-mei.png",
-    "url": "https://overwatch-api.net/api/v1/hero/9"
+    "url": "https://overwatch-api.net/api/v1/hero/9",
+    "alignImage": "top",
   },
   {
     "id": 10,
     "name": "Mercy",
-    "image": "Icon-mercy.png",
-    "url": "https://overwatch-api.net/api/v1/hero/10"
+    "url": "https://overwatch-api.net/api/v1/hero/10",
+    "alignImage": "top",
   },
   {
     "id": 11,
     "name": "Pharah",
-    "image": "Icon-pharah.png",
-    "url": "https://overwatch-api.net/api/v1/hero/11"
+    "url": "https://overwatch-api.net/api/v1/hero/11",
+    "alignImage": "top",
   },
   {
     "id": 12,
     "name": "Reaper",
-    "image": "Icon-reaper.png",
-    "url": "https://overwatch-api.net/api/v1/hero/12"
+    "url": "https://overwatch-api.net/api/v1/hero/12",
+    "alignImage": "top",
   },
   {
     "id": 13,
     "name": "Reinhardt",
-    "image": "Icon-reinhardt.png",
-    "url": "https://overwatch-api.net/api/v1/hero/13"
+    "url": "https://overwatch-api.net/api/v1/hero/13",
+    "alignImage": "top",
   },
   {
     "id": 14,
     "name": "Roadhog",
-    "image": "Icon-Roadhog.png",
-    "url": "https://overwatch-api.net/api/v1/hero/14"
+    "url": "https://overwatch-api.net/api/v1/hero/14",
+    "alignImage": "top",
   },
   {
     "id": 15,
     "name": "Soldier: 76",
-    "image": "Icon-Soldier76.png",
-    "url": "https://overwatch-api.net/api/v1/hero/15"
+    "url": "https://overwatch-api.net/api/v1/hero/15",
+    "alignImage": "top",
   },
   {
     "id": 16,
     "name": "Symmetra",
-    "image": "Icon-symmetra.png",
-    "url": "https://overwatch-api.net/api/v1/hero/16"
+    "url": "https://overwatch-api.net/api/v1/hero/16",
+    "alignImage": "top",
   },
   {
     "id": 17,
     "name": "Torbjörn",
-    "image": "Icon-torbjorn.png",
-    "url": "https://overwatch-api.net/api/v1/hero/17"
+    "url": "https://overwatch-api.net/api/v1/hero/17",
+    "alignImage": "top",
   },
   {
     "id": 18,
     "name": "Tracer",
-    "image": "Icon-tracer.png",
-    "url": "https://overwatch-api.net/api/v1/hero/18"
+    "url": "https://overwatch-api.net/api/v1/hero/18",
+    "alignImage": "top",
   },
   {
     "id": 19,
     "name": "Widowmaker",
-    "image": "Icon-widowmaker.png",
-    "url": "https://overwatch-api.net/api/v1/hero/19"
+    "url": "https://overwatch-api.net/api/v1/hero/19",
+    "alignImage": "top",
   },
   {
     "id": 20,
     "name": "Winston",
-    "image": "Icon-winston.png",
-    "url": "https://overwatch-api.net/api/v1/hero/20"
+    "url": "https://overwatch-api.net/api/v1/hero/20",
+    "alignImage": "top",
   },
   {
     "id": 21,
     "name": "Zarya",
-    "image": "Icon-zarya.png",
-    "url": "https://overwatch-api.net/api/v1/hero/21"
+    "url": "https://overwatch-api.net/api/v1/hero/21",
+    "alignImage": "top",
   },
   {
     "id": 22,
     "name": "Zenyatta",
-    "image": "Icon-zenyatta.png",
-    "url": "https://overwatch-api.net/api/v1/hero/22"
+    "url": "https://overwatch-api.net/api/v1/hero/22",
+    "alignImage": "top",
   },
   {
     "id": 23,
     "name": "Sombra",
-    "image": "Icon-sombra.png",
-    "url": "https://overwatch-api.net/api/v1/hero/23"
+    "url": "https://overwatch-api.net/api/v1/hero/23",
+    "alignImage": "top",
   },
   {
     "id": 24,
     "name": "Orisa",
-    "image": "Icon-orisa.png",
-    "url": "https://overwatch-api.net/api/v1/hero/24"
+    "url": "https://overwatch-api.net/api/v1/hero/24",
+    "alignImage": "top",
   },
 ]
