@@ -52,8 +52,8 @@ export default props => (
       </span>
       <Octocat
         style={{
-          width: '32px',
-          height: '32px',
+          width: '24px',
+          height: '24px',
           margin: '0 5px',
         }}
       />
