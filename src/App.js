@@ -1,13 +1,22 @@
 import React, { Component } from 'react'
-import { Grid, Cell } from 'react-mdl'
-import { Button } from 'belle'
-import { omit, keys, head } from 'ramda'
+import {
+  objOf, not, equals, omit, keys, head, prop, pipe
+} from 'ramda'
 
+import { HeroPicker, FlagPicker, Header } from './components'
 import heroes from './heroes'
-
-import { HeroCard, FlagPicker } from './components'
-
 import flags from './flags'
+
+const initialFlag = pipe(
+  head,
+  prop('name')
+)
+
+const loadPicks = pipe(
+  prop('picks'),
+  JSON.parse,
+  objOf('picks')
+)
 
 class App extends Component {
 	constructor (props) {
@@ -15,12 +24,12 @@ class App extends Component {
 		this.state = {
 			heroes,
       picks: {},
-      flag: head(keys(flags)),
+      selectedFlag: initialFlag(flags),
 		}
 	}
   componentDidMount () {
     if (localStorage.picks) {
-      this.setState({ picks: JSON.parse(localStorage.picks)})
+      this.setState(loadPicks(localStorage))
     }
   }
   handleHeroPicks (picks) {
@@ -30,18 +39,17 @@ class App extends Component {
     catch (e) {
       console.log('No local storage :(')
     }
-
     this.setState({
       picks,
     })
   }
   handleFlagSelection = (name) => {
-    this.setState({ flag: name })
+    this.setState({ selectedFlag: name })
   }
   pickHero = (name) => {
     const picks = {
       ...this.state.picks,
-      [name]: this.state.flag,
+      [name]: this.state.selectedFlag,
     }
     this.handleHeroPicks(picks)
   }
@@ -53,49 +61,27 @@ class App extends Component {
     const picks = {}
     this.handleHeroPicks(picks)
   }
-  canGenerateSheet = () => !(keys(this.state.picks).length === this.state.heroes.length)
-	render () {
+  canGenerateSheet =() => not(equals(
+    keys(this.state.picks).length,
+    this.state.heroes.length
+  ))
+  render () {
     return (
       <div className="App">
-        <Grid>
-          <Cell col={12} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <h4>Select your pick preference and then</h4>
-            <Button
-              style={{ margin: '0 10px' }}
-              disabled={this.canGenerateSheet()}
-              primary={!this.canGenerateSheet()}
-            >
-              Make a sheet!
-            </Button>
-            <h4>or</h4>
-            <Button
-              style={{ margin: '0 10px' }}
-              onClick={this.unpickAll}
-            >
-              Clear Picks
-            </Button>
-          </Cell>
-        </Grid>
-        <Grid>
+          <Header
+            canGenerateSheet={this.canGenerateSheet()}
+            unpickAll={this.unpickAll}
+          />
           <FlagPicker
-            flag={this.state.flag}
+            selected={this.state.selectedFlag}
             handleFlagSelection={this.handleFlagSelection}
           />
-        </Grid>
-        <Grid style={{ width: '80%' }}>
-          {this.state.heroes.map(hero =>
-            <Cell col={2} key={hero.name}>
-              <HeroCard
-                name={hero.name}
-                description={hero.description}
-                icon={hero.image}
-                flag={this.state.picks[hero.name]}
-                pickHero={this.pickHero}
-                unpickHero={this.unpickHero}
-              />
-            </Cell>
-          )}
-        </Grid>
+          <HeroPicker
+            heroes={this.state.heroes}
+            picks={this.state.picks}
+            pickHero={this.pickHero}
+            unpickHero={this.unpickHero}
+          />
       </div>
     )
   }

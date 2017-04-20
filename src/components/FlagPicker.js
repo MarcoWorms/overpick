@@ -1,14 +1,13 @@
 import React from 'react'
-import { Cell } from 'react-mdl'
+import { Grid, Cell } from 'react-mdl'
 import { Button } from 'belle'
-import { keys } from 'ramda'
 
 import flags from '../flags'
 
 const FlagButton = props => (
   <Button
     onClick={() => props.handleFlagSelection(props.name)}
-    primary={props.name === props.current}
+    primary={props.selected}
     style={{ margin: '0 10px 10px 10px' }}
   >
     {props.name}
@@ -16,21 +15,23 @@ const FlagButton = props => (
 )
 
 export default props => (
-  <Cell
-    col={12}
-    style={{
-      display: 'flex',
-      flexWrap: 'wrap',
-      justifyContent: 'center',
-    }}
-  >
-    {keys(flags).map(flagName => (
-      <FlagButton
-        name={flagName}
-        key={flagName}
-        current={props.flag}
-        handleFlagSelection={props.handleFlagSelection}
-      />
-    ))}
-  </Cell>
+  <Grid>
+    <Cell
+      col={12}
+      style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+      }}
+    >
+      {flags.map(flag => (
+        <FlagButton
+          name={flag.name}
+          key={flag.name}
+          selected={props.selected === flag.name}
+          handleFlagSelection={props.handleFlagSelection}
+        />
+      ))}
+    </Cell>
+  </Grid>
 )
