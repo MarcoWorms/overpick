@@ -14,7 +14,8 @@ export default props => (
       style={{
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        color: 'white',
       }}
     >
       <h4>
@@ -42,7 +43,7 @@ export default props => (
         position: 'absolute',
         right: '0',
         cursor: 'pointer',
-        color: 'black',
+        color: 'white',
       }}
       href="https://github.com/MarcoWorms/overpick"
       target="blank"

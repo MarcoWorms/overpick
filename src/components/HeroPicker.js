@@ -1,9 +1,9 @@
 import React from 'react'
-import { propEq, find, } from 'ramda'
 import flags from '../flags'
+import roles from '../roles'
 import { Grid, Cell } from 'react-mdl'
 
-import { replace, toLower, toUpper, head, tail, pipe } from 'ramda'
+import { propEq, find, replace, toLower, toUpper, head, tail, pipe } from 'ramda'
 
 const capitalize = string => toUpper(head(string)) + tail(string)
 
@@ -24,16 +24,19 @@ const HeroCard = (props) => {
         maxWidth: '150px',
         margin: 'auto',
         cursor: 'pointer',
-        height: '100px',
-        border: 'solid 2px #555',
+        height: '150px',
+        // border: 'solid 2px #555',
         borderLeft: 'none',
         borderTop: 'none',
         borderRadius: '20px',
         background: `url(./images/${image}_portrait.png) ${props.alignImage}`,
         backgroundSize: 'cover',
-        backgroundColor: flag.color || '#ddd',
-        boxShadow: `2px 2px 5px #aaa`,
+        backgroundRepeat: 'no-repeat',
+        backgroundColor: flag.color ? `rgba(${flag.color}, 0.5)` : '#ddd',
+        // boxShadow: `2px 2px 5px #aaa`,
         transition: '0.2s ease-out',
+        position: 'relative',
+        overflow: 'hidden',
       }}
       onClick={() => props.pickHero(props.name)}
       onContextMenu={(e) => {
@@ -43,23 +46,72 @@ const HeroCard = (props) => {
     >
       <div
         style={{
-          float: 'left',
-          backgroundColor: flag.color,
-          border: flag.color && 'solid 1px black',
-          borderRadius: '1000%',
+          backgroundColor: flag.color
+            ?`rgba(${flag.color}, 0.9)`
+            :'rgba(255, 255, 255, 0.7)',
+          // border: flag.color && 'solid 1px black',
+          fontSize: '8pt',
           height: '15px',
-          width: '15px',
+          width: '100%',
           transition: '0.2s ease-out',
+          position: 'absolute',
+          top: '0',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          color: flag.name === 'Nope' && 'white'
         }}
-      />
+      >
+        {props.name}
+      </div>
+      <div
+        style={{
+          backgroundColor: flag.color && `rgba(${flag.color}, 0.9)`,
+          // border: flag.color && 'solid 1px black',
+          fontSize: '14pt',
+          height: '30px',
+          width: '100%',
+          transition: '0.2s ease-out',
+          position: 'absolute',
+          bottom: '0',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          color: flag.name === 'Nope' && 'white'
+        }}
+      >
+        {flag.name}
+      </div>
     </div>
   )
 }
 
-export default props =>
-  <Grid style={{ width: '95%' }}>
+const HeroColumn = props =>
+  <Grid
+    style={{
+      width: 'calc(25% - 10px)',
+      margin: 0,
+      padding: 0,
+      paddingBottom: '10px',
+      justifyContent: 'space-around',
+      borderRadius: '30px',
+      borderLeft: 'solid rgba(255, 255, 255, 0.1) 2px',
+      borderRight: 'solid rgba(255, 255, 255, 0.1) 2px',
+    }}
+  >
+    <Cell col={12} style={{ display: 'flex', justifyContent: 'center' }}>
+      <img src={`./images/${props.role.type}.png`} />
+    </Cell>
     {props.heroes.map(hero =>
-      <Cell col={2} key={hero.name}>
+      <Cell
+        col={6}
+        key={hero.name}
+        style={{
+          margin: 0,
+          padding: 0,
+          marginTop: '10px',
+        }}
+      >
         <HeroCard
           name={hero.name}
           alignImage={hero.alignImage}
@@ -70,4 +122,25 @@ export default props =>
         />
       </Cell>
     )}
+  </Grid>
+
+export default props =>
+  <Grid
+    style={{
+      alignItems: 'start',
+      justifyContent: 'space-around',
+      width: '100%',
+      margin: 0,
+      padding: 0,
+    }}
+  >
+    {
+      roles.map(role => <HeroColumn
+        heroes={props.heroes.filter(propEq('role', role.type))}
+        role={role}
+        picks={props.picks}
+        pickHero={props.pickHero}
+        unpickHero={props.unpickHero}
+      />)
+    }
   </Grid>
