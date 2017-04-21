@@ -22,3 +22,12 @@ To install dependencies and start the development server:
 or
 
 `npm install` then `npm start`
+
+-----------------------
+
+<p align="right">
+  Overpick is under GPL3 License
+</p>
+<p align="right">
+  Thanks to <a href="http://overwatch.wikia.com/wiki/Overwatch_Wiki" >Overwatch Wiki</a> for the images :)
+</p>
