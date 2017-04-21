@@ -24,7 +24,8 @@ const HeroCard = (props) => {
         maxWidth: '150px',
         margin: 'auto',
         cursor: 'pointer',
-        height: '150px',
+        height: 170,
+        // height: flag.color ? 50 : 150,
         // border: 'solid 2px #555',
         borderLeft: 'none',
         borderTop: 'none',
@@ -32,7 +33,7 @@ const HeroCard = (props) => {
         background: `url(./images/${image}_portrait.png) ${props.alignImage}`,
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
-        backgroundColor: flag.color ? `rgba(${flag.color}, 0.5)` : '#ddd',
+        backgroundColor: flag.color ? `rgba(${flag.color}, 0.5)` : 'rgba(255, 255, 255, 0.1)',
         // boxShadow: `2px 2px 5px #aaa`,
         transition: '0.2s ease-out',
         position: 'relative',
@@ -89,7 +90,7 @@ const HeroCard = (props) => {
 const HeroColumn = props =>
   <Grid
     style={{
-      width: 'calc(25% - 10px)',
+      width: 'calc(25% - 20px)',
       margin: 0,
       padding: 0,
       paddingBottom: '10px',
