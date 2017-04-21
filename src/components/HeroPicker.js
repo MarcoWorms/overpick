@@ -21,8 +21,7 @@ const HeroCard = (props) => {
     <div
       style={{
         width: '100%',
-        maxWidth: '150px',
-        margin: 'auto',
+        minWidth: '90px',
         cursor: 'pointer',
         height: 170,
         // height: flag.color ? 50 : 150,
@@ -88,42 +87,53 @@ const HeroCard = (props) => {
 }
 
 const HeroColumn = props =>
-  <Grid
+  <Cell
+    col={3}
+    tablet={2}
+    phone={2}
     style={{
-      width: 'calc(25% - 20px)',
       margin: 0,
       padding: 0,
       paddingBottom: '10px',
-      justifyContent: 'space-around',
       borderRadius: '30px',
       borderLeft: 'solid rgba(255, 255, 255, 0.1) 2px',
       borderRight: 'solid rgba(255, 255, 255, 0.1) 2px',
     }}
   >
-    <Cell col={12} style={{ display: 'flex', justifyContent: 'center' }}>
-      <img src={`./images/${props.role.type}.png`} />
-    </Cell>
-    {props.heroes.map(hero =>
-      <Cell
-        col={6}
-        key={hero.name}
-        style={{
-          margin: 0,
-          padding: 0,
-          marginTop: '10px',
-        }}
-      >
-        <HeroCard
-          name={hero.name}
-          alignImage={hero.alignImage}
-          description={hero.description}
-          flagName={props.picks[hero.name]}
-          pickHero={props.pickHero}
-          unpickHero={props.unpickHero}
-        />
+    <Grid
+      style={{
+        margin: 0,
+        padding: 0,
+        justifyContent: 'space-around',
+      }}
+    >
+      <Cell col={12} style={{ display: 'flex', justifyContent: 'center' }}>
+        <img src={`./images/${props.role.type}.png`} />
       </Cell>
-    )}
-  </Grid>
+      {props.heroes.map(hero =>
+        <Cell
+          col={6}
+          key={hero.name}
+          style={{
+            margin: 0,
+            padding: 0,
+            marginTop: '10px',
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
+          <HeroCard
+            name={hero.name}
+            alignImage={hero.alignImage}
+            description={hero.description}
+            flagName={props.picks[hero.name]}
+            pickHero={props.pickHero}
+            unpickHero={props.unpickHero}
+          />
+        </Cell>
+      )}
+    </Grid>
+  </Cell>
 
 export default props =>
   <Grid
