@@ -26,6 +26,7 @@ class App extends Component {
 			heroes,
       picks: {},
       selectedFlag: initialFlag(flags),
+      generatingSheet: false,
 		}
 	}
   componentDidMount () {
@@ -70,8 +71,10 @@ class App extends Component {
     const node = document.querySelector('.toImage')
     const lastWidth = node.style.width
     node.style.width = '1100px'
+    this.setState({ generatingSheet: true })
     domToImage.toPng(node)
-      .then(function (dataUrl) {
+      .then((dataUrl) => {
+        this.setState({ generatingSheet: false })
         node.style.width = lastWidth
         window.open(dataUrl)
       })
@@ -82,6 +85,7 @@ class App extends Component {
         <Header
           canGenerateSheet={this.canGenerateSheet()}
           generateSheet={this.generateSheet}
+          generatingSheet={this.state.generatingSheet}
           unpickAll={this.unpickAll}
         />
         <FlagPicker

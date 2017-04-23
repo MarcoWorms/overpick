@@ -23,11 +23,11 @@ export default props => (
       </h4>
       <Button
         style={{ margin: '0 10px' }}
-        disabled={props.canGenerateSheet}
-        primary={!props.canGenerateSheet}
+        disabled={props.canGenerateSheet || props.generatingSheet}
+        primary={!props.canGenerateSheet && !props.generatingSheet}
         onClick={props.generateSheet}
       >
-        Make a sheet!
+        {!props.generatingSheet ? 'Make a sheet!' : 'Generating...'}
       </Button>
       <h4>
         or
