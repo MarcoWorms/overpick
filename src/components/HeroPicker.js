@@ -88,12 +88,11 @@ const HeroCard = (props) => {
 
 const HeroColumn = props =>
   <Cell
-    col={3}
-    tablet={2}
-    phone={2}
     style={{
       margin: 0,
       padding: 0,
+      width: '25%',
+      minWidth: '105px',
       paddingBottom: '10px',
       borderRadius: '30px',
       borderLeft: 'solid rgba(255, 255, 255, 0.1) 2px',
@@ -137,12 +136,14 @@ const HeroColumn = props =>
 
 export default props =>
   <Grid
+    className="toImage"
     style={{
       alignItems: 'start',
       justifyContent: 'space-around',
       width: '100%',
       margin: 0,
       padding: 0,
+      backgroundColor: '#333',
     }}
   >
     {

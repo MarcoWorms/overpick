@@ -25,6 +25,7 @@ export default props => (
         style={{ margin: '0 10px' }}
         disabled={props.canGenerateSheet}
         primary={!props.canGenerateSheet}
+        onClick={props.generateSheet}
       >
         Make a sheet!
       </Button>

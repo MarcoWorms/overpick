@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import domToImage from 'dom-to-image'
 import {
   objOf, not, equals, omit, keys, head, prop, pipe
 } from 'ramda'
@@ -61,15 +62,26 @@ class App extends Component {
     const picks = {}
     this.handleHeroPicks(picks)
   }
-  canGenerateSheet =() => not(equals(
+  canGenerateSheet = () => not(equals(
     keys(this.state.picks).length,
     this.state.heroes.length
   ))
+  generateSheet = () => {
+    const node = document.querySelector('.toImage')
+    const lastWidth = node.style.width
+    node.style.width = '1100px'
+    domToImage.toPng(node)
+      .then(function (dataUrl) {
+        node.style.width = lastWidth
+        window.open(dataUrl)
+      })
+  }
   render () {
     return (
       <div className="App">
         <Header
           canGenerateSheet={this.canGenerateSheet()}
+          generateSheet={this.generateSheet}
           unpickAll={this.unpickAll}
         />
         <FlagPicker
