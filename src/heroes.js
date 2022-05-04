@@ -167,4 +167,10 @@ export default [
     "alignImage": "top",
     "role": "Tank",
   },
+  {
+    "id": 25,
+    "name": "Doomfist",
+    "url": "https://overwatch-api.net/api/v1/hero/25",
+    "alignImage": "top",
+    "role": "Offense",
 ]
